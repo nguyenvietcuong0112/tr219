@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440618354566",
+    "project_id": "tr219-ai-money-tracker-native",
+    "storage_bucket": "tr219-ai-money-tracker-native.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440618354566:android:83ea3a7b3f0b0e73040e07",
+        "android_client_info": {
+          "package_name": "com.moneytracker.aimoney.moneymanager.finance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7CBLFOIlu8Jbzeo_I60OHZ8W0kRQujMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
