@@ -12,8 +12,8 @@ android {
         applicationId "com.moneytracker.aimoney.moneymanager.finance"
         minSdk 24
         targetSdk 34
-        versionCode 103
-        versionName "1.0.3"
+        versionCode 100
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         def formattedDate = new Date().format('MM.dd.yyyy')
