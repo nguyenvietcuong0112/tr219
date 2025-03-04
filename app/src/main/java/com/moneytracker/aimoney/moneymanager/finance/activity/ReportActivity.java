@@ -5,8 +5,8 @@ import android.content.Intent;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.moneytracker.aimoney.moneymanager.finance.Utils.AssistiveTouch;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.AssistiveTouch;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.ReportAdapter;
 import com.moneytracker.aimoney.moneymanager.finance.base.AbsBaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityReportBinding;

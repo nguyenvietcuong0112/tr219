@@ -1,4 +1,4 @@
-package com.moneytracker.aimoney.moneymanager.finance.Utils;
+package com.moneytracker.aimoney.moneymanager.finance.utils;
 
 import com.moneytracker.aimoney.moneymanager.finance.model.CurrencyUnitModel;
 import com.mynameismidori.currencypicker.ExtendedCurrency;

@@ -25,7 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.mallegan.ads.callback.NativeCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.CategoryAdapter;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityTransactionEditBinding;
 import com.moneytracker.aimoney.moneymanager.finance.model.TransactionData;

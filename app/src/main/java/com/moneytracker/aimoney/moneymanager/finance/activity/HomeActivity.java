@@ -16,8 +16,8 @@ import com.mallegan.ads.callback.InterCallback;
 import com.mallegan.ads.callback.NativeCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.Constant;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.Constant;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.base.AbsBaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.HomeActivityBinding;
 
@@ -31,7 +31,8 @@ public class HomeActivity extends AbsBaseActivity {
     public void bind() {
         binding = HomeActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         sharePreferenceUtils = new SharePreferenceUtils(this);
         sharePreferenceUtils.incrementCounter();
 

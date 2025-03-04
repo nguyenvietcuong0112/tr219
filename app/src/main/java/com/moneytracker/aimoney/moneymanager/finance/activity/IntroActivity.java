@@ -27,10 +27,10 @@ import com.mallegan.ads.callback.InterCallback;
 import com.mallegan.ads.callback.NativeCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.Constant;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemConfiguration;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemUtil;
+import com.moneytracker.aimoney.moneymanager.finance.utils.Constant;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemConfiguration;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemUtil;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.SlideAdapter;
 import com.moneytracker.aimoney.moneymanager.finance.base.BaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityIntroBinding;
@@ -44,6 +44,8 @@ public class IntroActivity extends BaseActivity implements View.OnClickListener 
     private boolean loadNative2 = true;
     private boolean loadNative3 = true;
     private boolean loadNative4 = true;
+    private final int[] titles = {R.string.note_continue1, R.string.note_continue2, R.string.note_continue3, R.string.note_continue4};
+
 
     @Override
     public void bind() {
@@ -207,6 +209,7 @@ public class IntroActivity extends BaseActivity implements View.OnClickListener 
                 binding.frAds.setVisibility(View.GONE);
                 binding.frAds1.setVisibility(View.GONE);
             }
+            binding.tvTitle.setText(titles[0]);
             binding.frAds4.setVisibility(View.GONE);
             binding.frAds3.setVisibility(View.GONE);
             binding.frAds2.setVisibility(View.GONE);
@@ -220,6 +223,7 @@ public class IntroActivity extends BaseActivity implements View.OnClickListener 
                 binding.frAds.setVisibility(View.GONE);
                 binding.frAds2.setVisibility(View.GONE);
             }
+            binding.tvTitle.setText(titles[1]);
             binding.frAds1.setVisibility(View.GONE);
             binding.frAds3.setVisibility(View.GONE);
             binding.frAds4.setVisibility(View.GONE);
@@ -233,6 +237,8 @@ public class IntroActivity extends BaseActivity implements View.OnClickListener 
                 binding.frAds.setVisibility(View.GONE);
                 binding.frAds3.setVisibility(View.GONE);
             }
+            binding.tvTitle.setText(titles[2]);
+
             binding.frAds4.setVisibility(View.GONE);
             binding.frAds1.setVisibility(View.GONE);
             binding.frAds2.setVisibility(View.GONE);
@@ -249,6 +255,7 @@ public class IntroActivity extends BaseActivity implements View.OnClickListener 
                 binding.frAds.setVisibility(View.GONE);
                 binding.frAds4.setVisibility(View.GONE);
             }
+            binding.tvTitle.setText(titles[3]);
             binding.frAds1.setVisibility(View.GONE);
             binding.frAds2.setVisibility(View.GONE);
             binding.frAds3.setVisibility(View.GONE);

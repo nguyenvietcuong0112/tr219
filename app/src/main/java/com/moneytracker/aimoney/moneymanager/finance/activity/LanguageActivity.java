@@ -12,34 +12,37 @@ import com.google.android.gms.ads.nativead.NativeAdView;
 import com.mallegan.ads.callback.NativeCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.Constant;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemConfiguration;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemUtil;
+import com.moneytracker.aimoney.moneymanager.finance.utils.ActivityLoadNativeFull;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemConfiguration;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemUtil;
+import com.moneytracker.aimoney.moneymanager.finance.utils.language.ConstantLangage;
+import com.moneytracker.aimoney.moneymanager.finance.utils.language.UILanguageCustom;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.LanguageStartAdapter;
 import com.moneytracker.aimoney.moneymanager.finance.base.BaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityLanguageBinding;
-;
+
 
 import java.util.Map;
 
 
-public class LanguageActivity extends BaseActivity {
+public class LanguageActivity extends BaseActivity implements UILanguageCustom.OnItemClickListener {
 
     String codeLang = "";
-    LanguageStartAdapter languageAdapter;
     ActivityLanguageBinding binding;
 
     private SharePreferenceUtils sharePreferenceUtils;
 
-    boolean isNativeLanguageSelectLoaded = false;
+    private boolean itemSelected = false;
 
     @Override
     public void bind() {
-        SystemConfiguration.setStatusBarColor(this, R.color.white, SystemConfiguration.IconColor.ICON_DARK);
+        SystemConfiguration.setStatusBarColor(this, R.color.transparent, SystemConfiguration.IconColor.ICON_DARK);
         SystemUtil.setLocale(this);
         binding = ActivityLanguageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         boolean fromSettings = getIntent().getBooleanExtra("from_settings", false);
 
 
@@ -69,24 +72,7 @@ public class LanguageActivity extends BaseActivity {
                 }
             });
         }
-        languageAdapter = new LanguageStartAdapter(this, Constant.getLanguage(), data -> {
-            codeLang = data.getIsoLanguage();
-            binding.ivSelect.setVisibility(View.VISIBLE);
-            binding.ivSelect.setAlpha(1.0f);
-            binding.ivSelect.setSelected(true);
-//            SharedPreferences sharedPreferences = getSharedPreferences("language_select", MODE_PRIVATE);
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            boolean isFirstLoad = sharedPreferences.getBoolean("isFirstLoadAds", true);
-//            if (isFirstLoad) {
-//                loadAdsNativeLanguageSelect();
-//                editor.putBoolean("isFirstLoadAds", false);
-//                editor.apply();
-//            }
 
-            if (!isNativeLanguageSelectLoaded) {
-                loadAdsNativeLanguageSelect();
-            }
-        });
         if (fromSettings) {
 //            binding.ivBack.setVisibility(View.VISIBLE);
             binding.frAds.setVisibility(View.GONE);
@@ -96,20 +82,34 @@ public class LanguageActivity extends BaseActivity {
             finish();
         });
 
-        binding.rvLanguage.setAdapter(languageAdapter);
+        setUpLayoutLanguage();
+
         binding.ivSelect.setOnClickListener(v -> {
-            if (codeLang != "") {
+            if (itemSelected) {
                 SystemUtil.saveLocale(this, codeLang);
                 if (fromSettings) {
                     finish();
                 } else {
-                    sharePreferenceUtils = new SharePreferenceUtils(this);
-                    int counterValue = sharePreferenceUtils.getCurrentValue();
-                    if (counterValue == 0) {
-                        startActivity(new Intent(LanguageActivity.this, GuideActivity.class));
+                    if (!SharePreferenceUtils.isOrganic(LanguageActivity.this)) {
+                        startActivity(new Intent(LanguageActivity.this, ActivityLoadNativeFull.class));
+                        finish();
                     } else {
+//                        sharePreferenceUtils = new SharePreferenceUtils(this);
+//                        int counterValue = sharePreferenceUtils.getCurrentValue();
+//                        if (counterValue == 0) {
                         startActivity(new Intent(LanguageActivity.this, IntroActivity.class));
+//                        } else {
+//                            startActivity(new Intent(LanguageActivity.this, MainActivity.class));
+//                        }
                     }
+
+//                    sharePreferenceUtils = new SharePreferenceUtils(this);
+//                    int counterValue = sharePreferenceUtils.getCurrentValue();
+//                    if (counterValue == 0) {
+//                        startActivity(new Intent(LanguageActivity.this, GuideActivity.class));
+//                    } else {
+//                        startActivity(new Intent(LanguageActivity.this, IntroActivity.class));
+//                    }
                 }
             } else {
                 Toast.makeText(this, "Please choose a language to continue", Toast.LENGTH_LONG).show();
@@ -117,39 +117,16 @@ public class LanguageActivity extends BaseActivity {
             }
         });
         binding.ivSelect.setVisibility(View.GONE);
-        loadAdsNative();
-    }
-
-    public void loadAdsNativeLanguageSelect() {
-        NativeAdView adView;
-        if (SharePreferenceUtils.isOrganic(this)) {
-            adView = (NativeAdView) LayoutInflater.from(this)
-                    .inflate(R.layout.layout_native_language, null);
-        } else {
-            adView = (NativeAdView) LayoutInflater.from(this)
-                    .inflate(R.layout.layout_native_language_non_organic, null);
-        }
-        checkNextButtonStatus(false);
-        Admob.getInstance().loadNativeAd(LanguageActivity.this, getString(R.string.native_language_select), new NativeCallback() {
-            @Override
-            public void onNativeAdLoaded(NativeAd nativeAd) {
-                isNativeLanguageSelectLoaded = true;
-                binding.frAds.removeAllViews();
-                binding.frAds.addView(adView);
-                Admob.getInstance().pushAdsToViewCustom(nativeAd, adView);
-                checkNextButtonStatus(true);
-            }
-
-            @Override
-            public void onAdFailedToLoad() {
-                binding.frAds.removeAllViews();
-                checkNextButtonStatus(true);
-            }
-        });
+        loadAds();
     }
 
 
-    private void loadAdsNative() {
+    private void setUpLayoutLanguage() {
+        binding.uiLanguage.upDateData(ConstantLangage.getLanguage1(), ConstantLangage.getLanguage2(), ConstantLangage.getLanguage3());
+        binding.uiLanguage.setOnItemClickListener(this);
+    }
+
+    private void loadAds() {
         checkNextButtonStatus(false);
         Admob.getInstance().loadNativeAd(LanguageActivity.this, getString(R.string.native_language), new NativeCallback() {
             @Override
@@ -177,6 +154,36 @@ public class LanguageActivity extends BaseActivity {
         });
     }
 
+    public void loadAdsNativeLanguageSelect() {
+        NativeAdView adView;
+        if (SharePreferenceUtils.isOrganic(this)) {
+            adView = (NativeAdView) LayoutInflater.from(this)
+                    .inflate(R.layout.layout_native_language, null);
+        } else {
+            adView = (NativeAdView) LayoutInflater.from(this)
+                    .inflate(R.layout.layout_native_language_non_organic, null);
+        }
+        checkNextButtonStatus(false);
+
+        Admob.getInstance().loadNativeAd(LanguageActivity.this, getString(R.string.native_language_select), new NativeCallback() {
+            @Override
+            public void onNativeAdLoaded(NativeAd nativeAd) {
+                binding.frAds.removeAllViews();
+                binding.frAds.addView(adView);
+                Admob.getInstance().pushAdsToViewCustom(nativeAd, adView);
+
+                checkNextButtonStatus(true);
+            }
+
+            @Override
+            public void onAdFailedToLoad() {
+                binding.frAds.removeAllViews();
+                checkNextButtonStatus(true);
+            }
+        });
+
+    }
+
     private void checkNextButtonStatus(boolean isReady) {
         if (isReady) {
             binding.ivSelect.setVisibility(View.VISIBLE);
@@ -185,6 +192,20 @@ public class LanguageActivity extends BaseActivity {
             binding.ivSelect.setVisibility(View.GONE);
             binding.btnNextLoading.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onItemClickListener(int position, boolean itemseleted) {
+        this.itemSelected = itemseleted;
+        if (itemseleted) {
+            binding.ivSelect.setAlpha(1.0f);
+        }
+        loadAdsNativeLanguageSelect();
+    }
+
+    @Override
+    public void onPreviousPosition(int pos) {
+
     }
 
 

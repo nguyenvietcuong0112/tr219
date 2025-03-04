@@ -2,8 +2,8 @@ package com.moneytracker.aimoney.moneymanager.finance.adapter;
 
 
 
-import static com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils.getSelectedCurrencyCode;
-import static com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils.saveSelectedCurrencyCode;
+import static com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils.getSelectedCurrencyCode;
+import static com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils.saveSelectedCurrencyCode;
 
 import android.content.Context;
 import android.content.Intent;

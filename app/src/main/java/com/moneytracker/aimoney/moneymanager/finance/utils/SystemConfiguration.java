@@ -1,4 +1,4 @@
-package com.moneytracker.aimoney.moneymanager.finance.Utils;
+package com.moneytracker.aimoney.moneymanager.finance.utils;
 
 import static android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS;
 

@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemConfiguration;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemConfiguration;
 
 public abstract class AbsBaseActivity extends AppCompatActivity {
 

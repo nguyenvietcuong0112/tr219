@@ -10,9 +10,9 @@ import com.appsflyer.AppsFlyerLib;
 import com.mallegan.ads.callback.InterCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharedClass;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemUtil;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharedClass;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemUtil;
 import com.moneytracker.aimoney.moneymanager.finance.base.BaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivitySplashBinding;
 

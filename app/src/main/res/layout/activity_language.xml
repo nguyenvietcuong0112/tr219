@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="10dp"
-                android:background="#FFFFFF"
+                android:background="#24B26D"
                 android:paddingVertical="15dp">
 
                 <ImageView
@@ -43,23 +43,12 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="Languages"
-                    android:textColor="#101828"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_20sdp"
                     android:fontFamily="@font/roboto_bold"
                     app:layout_constraintBottom_toBottomOf="@+id/frNext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/frNext" />
-                <TextView
-                    android:id="@+id/tv_please_language"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="Please select language to continue"
-                    android:textColor="#5D6271"
-                    android:textSize="@dimen/_14sdp"
-                    android:fontFamily="@font/roboto_regular"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
                 <FrameLayout
                     android:id="@+id/frNext"
@@ -96,18 +85,30 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_language"
+        <TextView
+            android:id="@+id/tv_please_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:maxLines="1"
+            android:text="Please select language to continue"
+            android:textColor="#232323"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintTop_toBottomOf="@+id/cardToolbar" />
+
+        <com.moneytracker.aimoney.moneymanager.finance.utils.language.UILanguageCustom
+            android:id="@+id/uiLanguage"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="5sp"
             app:layout_constraintBottom_toTopOf="@+id/fr_ads"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardToolbar"
-            tools:listitem="@layout/item_language" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_please_language" />
+
 
         <FrameLayout
             android:id="@+id/fr_ads"

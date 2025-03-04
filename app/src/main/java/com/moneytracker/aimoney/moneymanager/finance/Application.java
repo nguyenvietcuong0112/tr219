@@ -113,7 +113,7 @@ import com.google.firebase.FirebaseApp;
 import com.mallegan.ads.util.AdsApplication;
 import com.mallegan.ads.util.AppOpenManager;
 import com.mallegan.ads.util.AppsFlyer;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.activity.IntroActivity;
 import com.moneytracker.aimoney.moneymanager.finance.activity.LanguageActivity;
 import com.moneytracker.aimoney.moneymanager.finance.activity.SplashActivity;

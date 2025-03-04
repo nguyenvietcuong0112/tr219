@@ -12,9 +12,9 @@ import com.google.android.gms.ads.nativead.NativeAdView;
 import com.mallegan.ads.callback.NativeCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemConfiguration;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SystemUtil;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemConfiguration;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SystemUtil;
 import com.moneytracker.aimoney.moneymanager.finance.base.BaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityInterestBinding;
 
@@ -129,6 +129,8 @@ public class InterestActivity  extends BaseActivity {
         checkBoxes.add(binding.cbOptimizeSpending);
         checkBoxes.add(binding.cbPlanInvestments);
         checkBoxes.add(binding.cbFinancialReports);
+        checkBoxes.add(binding.cbTrackExpensesIncome);
+        checkBoxes.add(binding.cbOthers);
     }
 
     private void setupListeners() {

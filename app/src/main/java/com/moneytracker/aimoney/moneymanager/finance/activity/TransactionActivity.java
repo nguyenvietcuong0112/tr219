@@ -13,7 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.ChatAdapter;
 import com.moneytracker.aimoney.moneymanager.finance.base.AbsBaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.TransactionActivityBinding;

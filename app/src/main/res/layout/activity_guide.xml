@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.moneytracker.aimoney.moneymanager.finance.Utils.NonSwipeAbleViewPager
+        <com.moneytracker.aimoney.moneymanager.finance.utils.NonSwipeAbleViewPager
             android:id="@+id/view_pager2"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center"
         android:text="Guide"
@@ -52,15 +52,14 @@
 
     <LinearLayout
         android:id="@+id/ll_cricle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_10sdp"
         android:clipToPadding="false"
         android:gravity="center"
         android:layout_marginStart="@dimen/_10sdp"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@+id/frAds"
+        app:layout_constraintBottom_toTopOf="@+id/nextGuide"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
@@ -92,12 +91,13 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/nextGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="@+id/ll_cricle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frAds"
         app:layout_constraintTop_toTopOf="@+id/ll_cricle">
 
         <LinearLayout
@@ -120,7 +120,7 @@
                     android:id="@+id/btn_next_loading"
                     style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_height="12dp"
                     android:layout_gravity="center"
                     android:indeterminate="true"
                     android:indeterminateTint="#1590EA"

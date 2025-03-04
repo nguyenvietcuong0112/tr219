@@ -114,7 +114,6 @@
                     android:layout_width="@dimen/_90sdp"
                     android:layout_height="@dimen/_90sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/bg_ai_bot_trans"
                     android:gravity="center">
 
                     <com.airbnb.lottie.LottieAnimationView

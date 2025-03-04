@@ -6,46 +6,47 @@
     android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/iv_bot"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
+    <TextView
+        android:id="@+id/tv_bot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:text="Interests"
+        android:textSize="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="#232323"
         android:src="@drawable/ic_ai_bot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:text="What do you want to achieve with AI Money Tracker?"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:src="@drawable/img_bot_interest"
-        app:layout_constraintBottom_toBottomOf="@id/iv_bot"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_bot"
-        app:layout_constraintTop_toTopOf="@id/iv_bot" />
+        android:textColor="#444444"
+        android:src="@drawable/ic_ai_bot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bot" />
+
 
     <CheckBox
         android:id="@+id/cbTrackExpenses"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:background="@drawable/interest_selector"
         android:button="@null"
         android:padding="12dp"
-        android:text="Track expenses and income"
+        android:text="Set Financial"
         android:textColor="@color/interest_text_color"
         app:layout_constraintEnd_toStartOf="@id/cbMonitorSavings"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_bot" />
+        app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
     <CheckBox
         android:id="@+id/cbMonitorSavings"
@@ -121,6 +122,37 @@
         app:layout_constraintStart_toEndOf="@id/cbPlanInvestments"
         app:layout_constraintTop_toTopOf="@id/cbPlanInvestments" />
 
+    <CheckBox
+        android:id="@+id/cbTrackExpensesIncome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/interest_selector"
+        android:button="@null"
+        android:padding="12dp"
+        android:text="Plan investments"
+        android:textColor="@color/interest_text_color"
+        app:layout_constraintEnd_toStartOf="@id/cbFinancialReports"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbPlanInvestments" />
+
+    <CheckBox
+        android:id="@+id/cbOthers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/interest_selector"
+        android:button="@null"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:padding="12dp"
+        android:text="Others"
+        android:textColor="@color/interest_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cbTrackExpensesIncome"
+        app:layout_constraintTop_toTopOf="@id/cbTrackExpensesIncome" />
+
 
     <Button
         android:id="@+id/btnContinue"
@@ -131,9 +163,10 @@
         android:backgroundTint="@color/button_state_color"
         android:enabled="false"
         android:text="Continue"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbPlanInvestments" />
+        app:layout_constraintTop_toBottomOf="@id/cbTrackExpensesIncome" />
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/btn_next_loading"
@@ -141,7 +174,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_60sdp"
         android:indeterminate="true"
         android:indeterminateTint="#1590EA"
         android:visibility="visible"

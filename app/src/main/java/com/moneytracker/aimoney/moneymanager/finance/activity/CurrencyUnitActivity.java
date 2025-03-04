@@ -2,8 +2,9 @@ package com.moneytracker.aimoney.moneymanager.finance.activity;
 
 
 import android.content.Intent;
+import android.view.View;
 
-import com.moneytracker.aimoney.moneymanager.finance.Utils.Utils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.Utils;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.CurrencyUnitAdapter;
 //import com.moneytracker.aimoney.moneymanager.finance.base.AbsBaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityCurrencyUnitBinding;
@@ -23,7 +24,8 @@ public class CurrencyUnitActivity extends AbsBaseActivity {
     public void bind() {
         binding = ActivityCurrencyUnitBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         boolean fromSettings = getIntent().getBooleanExtra(EXTRA_FROM_SETTINGS, false);
 
 

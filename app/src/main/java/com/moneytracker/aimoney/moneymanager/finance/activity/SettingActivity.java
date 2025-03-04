@@ -7,7 +7,7 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 
 import com.mallegan.ads.util.AppOpenManager;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.base.BaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivitySettingsBinding;
 

@@ -37,6 +37,7 @@
     <string name="inter_splash" translatable="false"></string>
     <string name="inter_intro" translatable="false"></string>
     <string name="inter_home" translatable="false"></string>
+    <string name="native_full_language" translatable="false"></string>
 
     <string name="native_onboarding1" translatable="false"></string>
     <string name="native_onboarding2" translatable="false"></string>

@@ -17,35 +17,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.moneytracker.aimoney.moneymanager.finance.Utils.NonSwipeAbleViewPager
+        <com.moneytracker.aimoney.moneymanager.finance.utils.NonSwipeAbleViewPager
             android:id="@+id/view_pager2"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/ic_previous"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/ll_cricle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ll_cricle" />
 
     <LinearLayout
         android:id="@+id/ll_cricle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_10sdp"
         android:clipToPadding="false"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@+id/frAds"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -77,14 +66,45 @@
 
     </LinearLayout>
 
-    <FrameLayout
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_100sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="This alarm preftpreftpreff tpreftpreftpreft."
+        android:textColor="#152031"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_cricle"
+        app:layout_constraintBottom_toTopOf="@+id/frAds"
+        app:layout_constraintEnd_toStartOf="@id/frNext"
+        app:layout_constraintTop_toTopOf="@+id/ll_cricle" />
+
+
+    <ImageView
+        android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/ic_previous"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/frAds"
+        app:layout_constraintEnd_toStartOf="@id/frNext"
+        app:layout_constraintTop_toTopOf="@+id/ll_cricle" />
+
+    <FrameLayout
+        android:id="@+id/frNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/ll_cricle"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ll_cricle">
+        app:layout_constraintTop_toBottomOf="@+id/ll_cricle">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -105,8 +125,8 @@
                 <androidx.core.widget.ContentLoadingProgressBar
                     android:id="@+id/btn_next_loading"
                     style="@style/Widget.AppCompat.ProgressBar"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="12dp"
                     android:layout_gravity="center"
                     android:indeterminate="true"
                     android:indeterminateTint="#1590EA"

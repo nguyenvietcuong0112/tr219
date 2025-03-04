@@ -50,7 +50,7 @@ public class LanguageStartAdapter extends RecyclerView.Adapter<LanguageStartAdap
             setSelectLanguage(data.getIsoLanguage());
             iClickLanguage.onClick(data);
             for (LanguageModel item : lists) {
-                item.setHandVisible(false);
+//                item.setHandVisible(false);
             }
             notifyDataSetChanged();
         });
@@ -77,11 +77,11 @@ public class LanguageStartAdapter extends RecyclerView.Adapter<LanguageStartAdap
         }
 
         public void bind(LanguageModel data, Context context, int position) {
-            if (data.isHandVisible() && position == 2) {
-                binding.animHand.setVisibility(View.VISIBLE);
-            } else {
-                binding.animHand.setVisibility(View.INVISIBLE);
-            }
+//            if (data.isHandVisible() && position == 2) {
+//                binding.animHand.setVisibility(View.VISIBLE);
+//            } else {
+//                binding.animHand.setVisibility(View.INVISIBLE);
+//            }
 
             binding.ivAvatar.setImageDrawable(context.getDrawable(data.getImage()));
             binding.tvTitle.setText(data.getLanguageName());

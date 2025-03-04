@@ -16,6 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingVertical="15dp"
+            android:background="#24B26D"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +40,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="Currency unit"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -52,11 +54,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/iv_select"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Next"
+                        android:src="@drawable/ic_check_language"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textSize="18dp"

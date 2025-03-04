@@ -42,18 +42,24 @@
         <activity
             android:name=".activity.SettingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".utils.ActivityLoadNativeFull"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".activity.IntroActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LanguageActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:screenOrientation="portrait" />
 
 
         <activity
             android:name=".activity.HomeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.NoActionBar"
+            />
 
         <activity
             android:name=".activity.ReportActivity"

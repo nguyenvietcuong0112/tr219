@@ -18,7 +18,7 @@ import com.google.android.gms.ads.nativead.NativeAdView;
 import com.mallegan.ads.callback.NativeCallback;
 import com.mallegan.ads.util.Admob;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.ActivityTransactionDetailsBinding;
 import com.moneytracker.aimoney.moneymanager.finance.model.TransactionData;
 

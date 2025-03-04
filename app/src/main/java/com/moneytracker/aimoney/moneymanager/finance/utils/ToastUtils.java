@@ -1,4 +1,4 @@
-package com.moneytracker.aimoney.moneymanager.finance.Utils;
+package com.moneytracker.aimoney.moneymanager.finance.utils;
 
 import android.content.Context;
 import android.widget.Toast;

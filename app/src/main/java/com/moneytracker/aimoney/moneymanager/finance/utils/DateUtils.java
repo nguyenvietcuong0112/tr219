@@ -1,4 +1,4 @@
-package com.moneytracker.aimoney.moneymanager.finance.Utils;
+package com.moneytracker.aimoney.moneymanager.finance.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

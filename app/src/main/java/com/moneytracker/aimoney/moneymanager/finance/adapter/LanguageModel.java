@@ -6,16 +6,11 @@ public class LanguageModel {
     public Boolean isCheck;
     public int image;
 
-    private boolean isHandVisible;
-
-
-    public LanguageModel(String languageName, String isoLanguage, Boolean isCheck, int image, boolean isHandVisible) {
+    public LanguageModel(String languageName, String isoLanguage, Boolean isCheck, int image) {
         this.languageName = languageName;
         this.isoLanguage = isoLanguage;
         this.isCheck = isCheck;
         this.image = image;
-        this.isHandVisible = isHandVisible;
-
     }
 
     public String getLanguageName() {
@@ -48,13 +43,5 @@ public class LanguageModel {
 
     public void setImage(int image) {
         this.image = image;
-    }
-
-    public boolean isHandVisible() {
-        return isHandVisible;
-    }
-
-    public void setHandVisible(boolean handVisible) {
-        isHandVisible = handVisible;
     }
 }

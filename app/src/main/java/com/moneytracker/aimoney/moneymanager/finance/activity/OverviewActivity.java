@@ -28,8 +28,8 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.google.android.material.tabs.TabLayout;
 import com.moneytracker.aimoney.moneymanager.finance.R;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.AssistiveTouch;
-import com.moneytracker.aimoney.moneymanager.finance.Utils.SharePreferenceUtils;
+import com.moneytracker.aimoney.moneymanager.finance.utils.AssistiveTouch;
+import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.adapter.ExpenseAdapter;
 import com.moneytracker.aimoney.moneymanager.finance.base.AbsBaseActivity;
 import com.moneytracker.aimoney.moneymanager.finance.databinding.OverviewActivityBinding;
@@ -66,28 +66,8 @@ public class OverviewActivity extends AbsBaseActivity {
         monthSelector = binding.monthSelector;
         binding.imTransaction.setOnTouchListener(new AssistiveTouch());
         timeFilterSpinner = binding.timeFilterSpinner;
-
         setupTimeFilterSpinner();
 
-//        broadcastReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                if (intent.getAction().equals("CURRENCY_CHANGED")) {
-//                    String selectedMonth = monthSelector.getSelectedItem().toString();
-//
-//                    List<Message> filteredMessages = filterMessagesByMonth(selectedMonth);
-//                    updateSavingAmount(filteredMessages);
-//
-//                    int selectedTabPosition = binding.tabLayout.getSelectedTabPosition();
-//                    String currentType = selectedTabPosition == 0 ? "Expense" : "Income";
-//                    loadPieChartData(currentType, filteredMessages);
-//
-//                    if (expenseAdapter != null) {
-//                        expenseAdapter.updateData(getExpenses(currentType, filteredMessages));
-//                    }
-//                }
-//            }
-//        };
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -100,13 +80,7 @@ public class OverviewActivity extends AbsBaseActivity {
                 .registerReceiver(broadcastReceiver, new IntentFilter("CURRENCY_CHANGED"));
 
         binding.ivBack.setOnClickListener(view -> onBackPressed());
-//        binding.imTransaction.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, TransactionActivity.class);
-//            startActivity(intent);
-//        });
 
-
-//        setupMonthSelector();
 
         setupTabLayout();
         setupPieChart();
@@ -128,6 +102,7 @@ public class OverviewActivity extends AbsBaseActivity {
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timeFilterSpinner.setAdapter(adapter);
+        monthSelector.setAdapter(adapter);
 
         // Default to "Month" filter
         timeFilterSpinner.setSelection(2);
@@ -338,49 +313,6 @@ public class OverviewActivity extends AbsBaseActivity {
         barChart.setDoubleTapToZoomEnabled(false);
         barChart.setData(barData);
         barChart.invalidate();
-    }
-
-    private void setupMonthSelector() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.months,
-               R.layout.spinner_item
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        monthSelector.setAdapter(adapter);
-
-        String currentMonth = new SimpleDateFormat("MMMM", Locale.ENGLISH).format(new Date());
-        int defaultPosition = adapter.getPosition(currentMonth);
-        if (defaultPosition >= 0) {
-            monthSelector.setSelection(defaultPosition);
-        }
-
-        monthSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedMonth = parent.getItemAtPosition(position).toString();
-                updateDataForSelectedMonth(selectedMonth);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-    }
-
-    private void updateDataForSelectedMonth(String selectedMonth) {
-        List<Message> filteredMessages = filterMessagesByMonth(selectedMonth);
-        updateSavingAmount(filteredMessages);
-        updateCharts(filteredMessages);
-
-        int selectedTabPosition = binding.tabLayout.getSelectedTabPosition();
-        String currentType = selectedTabPosition == 0 ? "Expense" : "Income";
-
-        loadPieChartData(currentType, filteredMessages);
-
-        if (expenseAdapter != null) {
-            expenseAdapter.updateData(getExpenses(currentType, filteredMessages));
-        }
     }
 
     private List<Message> filterMessagesByMonth(String selectedMonth) {
