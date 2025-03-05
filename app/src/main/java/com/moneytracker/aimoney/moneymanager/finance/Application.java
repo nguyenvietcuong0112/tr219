@@ -113,6 +113,7 @@ import com.google.firebase.FirebaseApp;
 import com.mallegan.ads.util.AdsApplication;
 import com.mallegan.ads.util.AppOpenManager;
 import com.mallegan.ads.util.AppsFlyer;
+import com.moneytracker.aimoney.moneymanager.finance.service.FirebaseRemoteManager;
 import com.moneytracker.aimoney.moneymanager.finance.utils.SharePreferenceUtils;
 import com.moneytracker.aimoney.moneymanager.finance.activity.IntroActivity;
 import com.moneytracker.aimoney.moneymanager.finance.activity.LanguageActivity;
@@ -150,6 +151,8 @@ public class Application extends AdsApplication {
         AppOpenManager.getInstance().disableAppResumeWithActivity(SplashActivity.class);
         AppOpenManager.getInstance().disableAppResumeWithActivity(LanguageActivity.class);
         AppOpenManager.getInstance().disableAppResumeWithActivity(IntroActivity.class);
+        FirebaseRemoteManager.getInstance();
+
         FacebookSdk.setClientToken(getString(R.string.facebook_client_token));
 
         if (!SharePreferenceUtils.isOrganic(getApplicationContext())) {

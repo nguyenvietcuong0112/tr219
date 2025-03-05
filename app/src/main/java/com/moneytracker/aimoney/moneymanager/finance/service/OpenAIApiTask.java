@@ -3,6 +3,7 @@ package com.moneytracker.aimoney.moneymanager.finance.service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,8 +26,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class OpenAIApiTask extends AsyncTask<String, Void, TransactionData> {
+    static String apiKey = FirebaseRemoteManager.getInstance().getApiKey();
     private static final String API_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String API_KEY = "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";
+    private static final String API_KEY = apiKey;
     private final List<Message> messages;
     private final ChatAdapter adapter;
     private final RecyclerView recyclerView;
